@@ -1,0 +1,22 @@
+.dashboard-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-links li {
+  margin-bottom: 10px;
+}
+
+.dashboard-links a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.dashboard-links a:hover {
+  text-decoration: underline;
+}

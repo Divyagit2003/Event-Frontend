@@ -1,0 +1,30 @@
+.admin-venues-container {
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .add-venue-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .venue-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .venue-table th,
+  .venue-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .delete-btn {
+    color: white;
+    background-color: red;
+    margin-left: 10px;
+  }
+  
