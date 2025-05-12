@@ -1,63 +1,114 @@
-.admin-events-container {
-    padding: 30px;
-    max-width: 1000px;
-    margin: auto;
-    font-family: Arial, sans-serif;
+.my-events-container {
+  padding: 2rem 4%;
+  background: linear-gradient(135deg, #f0f4ff, #ffffff);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.my-events-container h2 {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.event-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.event-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.event-card h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.5rem;
+  color: #34495e;
+}
+
+.event-card p {
+  color: #555;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35em 0.75em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: #e0f0ff;
+  color: #0077cc;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.event-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+.view-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-button {
+  background-color: #00b894;
+  color: white;
+}
+
+.view-button:hover {
+  background-color: #019875;
+  transform: translateY(-2px);
+}
+
+.delete-button {
+  background-color: #ff7675;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #d63031;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
   }
-  
-  .events-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  .events-table th,
-  .events-table td {
-    padding: 12px 16px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .events-table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .events-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .view-btn,
-  .delete-btn {
-    padding: 6px 12px;
-    margin-right: 8px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .view-btn {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .view-btn:hover {
-    background-color: #218838;
-  }
-  
-  .delete-btn:hover {
-    background-color: #c82333;
-  }
-  
+}

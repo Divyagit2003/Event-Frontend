@@ -11,7 +11,7 @@ const MyRegistrations = () => {
   useEffect(() => {
     const fetchRegistrations = async () => {
       try {
-        const response = await axios.get("http://localhost:8083/api/attendee/registrations");
+        const response = await axios.get("http://localhost:8084/attendee/register");
         setRegistrations(response.data);
       } catch (error) {
         setError("Error fetching registrations. Please try again.");

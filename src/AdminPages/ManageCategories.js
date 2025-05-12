@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ManageCategories.css';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const ManageCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -8,23 +9,15 @@ const ManageCategories = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [categoryId, setCategoryId] = useState(null);
 
-  // Fetch categories from backend
   useEffect(() => {
-    axios.get('http://localhost:8083/api/categories/getAllCategories')
+    axios.get('http://localhost:8084/api/categories/getAllCategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
 
-  // Handle category addition
   const handleAddCategory = () => {
     if (newCategory) {
-      axios.post('http://localhost:8083/api/categories/createCategory', 
-        { name: newCategory },
-        {
-          headers: {
-            'Content-Type': 'application/json', // Ensure Content-Type is JSON
-          },
-        })
+      axios.post('http://localhost:8084/api/categories/createCategory', { name: newCategory })
         .then(response => {
           setCategories([...categories, response.data]);
           setNewCategory('');
@@ -33,28 +26,25 @@ const ManageCategories = () => {
     }
   };
 
-  // Handle category deletion
   const handleDeleteCategory = (id) => {
-    axios.delete(`http://localhost:8083/api/categories/deleteCategories/${id}`)
+    axios.delete(`http://localhost:8084/api/categories/deleteCategories/${id}`)
       .then(() => {
         setCategories(categories.filter(category => category.id !== id));
       })
       .catch(error => console.error('Error deleting category:', error));
   };
 
-  // Handle category edit (optional)
   const handleEditCategory = (id, name) => {
     setIsEditing(true);
     setCategoryId(id);
     setNewCategory(name);
   };
 
-  // Handle updating category
   const handleUpdateCategory = () => {
     if (newCategory && categoryId !== null) {
-      axios.put(`http://localhost:8083/api/categories/updateCategories/${categoryId}`, { name: newCategory })
+      axios.put(`http://localhost:8084/api/categories/updateCategories/${categoryId}`, { name: newCategory })
         .then(response => {
-          setCategories(categories.map(category => 
+          setCategories(categories.map(category =>
             category.id === categoryId ? response.data : category
           ));
           setIsEditing(false);
@@ -67,29 +57,36 @@ const ManageCategories = () => {
 
   return (
     <div className="manage-categories-container">
-      <h2>Manage Categories</h2>
-      <div>
-        <input 
-          type="text" 
-          value={newCategory} 
-          onChange={e => setNewCategory(e.target.value)} 
-          placeholder="Category Name" 
+      <h2>📂 Manage Categories</h2>
+      <div className="category-input-section">
+        <input
+          type="text"
+          value={newCategory}
+          onChange={e => setNewCategory(e.target.value)}
+          placeholder="Enter category name"
         />
         {isEditing ? (
-          <button onClick={handleUpdateCategory}>Update Category</button>
+          <button className="update-btn" onClick={handleUpdateCategory}>Update</button>
         ) : (
-          <button onClick={handleAddCategory}>Add Category</button>
+          <button className="add-btn" onClick={handleAddCategory}>Add</button>
         )}
       </div>
-      <ul>
+
+      <div className="category-list">
         {categories.map(category => (
-          <li key={category.id}>
-            {category.name} 
-            <button onClick={() => handleEditCategory(category.id, category.name)}>Edit</button>
-            <button onClick={() => handleDeleteCategory(category.id)}>Delete</button>
-          </li>
+          <div className="category-card" key={category.id}>
+            <h4>{category.name}</h4>
+            <div className="action-buttons">
+              <button onClick={() => handleEditCategory(category.id, category.name)} className="edit-btn">
+                <FaEdit /> Edit
+              </button>
+              <button onClick={() => handleDeleteCategory(category.id)} className="delete-btn">
+                <FaTrash /> Delete
+              </button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

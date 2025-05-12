@@ -1,48 +1,81 @@
-.signup-container {
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+    padding: 20px;
+  }
+  
+  .signup-form-box {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px;
     width: 100%;
     max-width: 400px;
-    margin: 80px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
   
-  .signup-container h2 {
+  .signup-form-box h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #333;
+    font-weight: 500;
   }
   
-  .signup-container form {
+  .signup-form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
   }
   
-  .signup-container input,
-  .signup-container select {
+  .signup-input {
     padding: 12px;
-    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
   }
   
-  .signup-container button {
-    background-color: #28a745;
-    color: white;
+  .signup-input:focus {
+    border-color: #4a90e2;
+  }
+  
+  .signup-btn {
     padding: 12px;
+    background-color: #4a90e2;
+    color: white;
     border: none;
     border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.25s ease;
   }
   
-  .signup-container button:hover {
-    background-color: #1e7e34;
+  .signup-btn:hover {
+    background-color: #3a78c2;
   }
   
-  .signup-container p {
+  .signup-footer-text {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .signup-footer-text a {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+  
+  .signup-footer-text a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 500px) {
+    .signup-form-box {
+      padding: 30px 20px;
+    }
   }
   
