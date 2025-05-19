@@ -56,38 +56,52 @@ const ManageCategories = () => {
   };
 
   return (
-    <div className="manage-categories-container">
-      <h2>📂 Manage Categories</h2>
-      <div className="category-input-section">
-        <input
-          type="text"
-          value={newCategory}
-          onChange={e => setNewCategory(e.target.value)}
-          placeholder="Enter category name"
-        />
-        {isEditing ? (
-          <button className="update-btn" onClick={handleUpdateCategory}>Update</button>
-        ) : (
-          <button className="add-btn" onClick={handleAddCategory}>Add</button>
-        )}
-      </div>
+    // ✅ No logic changes needed, only ensure your container uses full width
+<div className="custom-manage-categories">
+  <h2>📂 Manage Categories</h2>
 
-      <div className="category-list">
-        {categories.map(category => (
-          <div className="category-card" key={category.id}>
-            <h4>{category.name}</h4>
-            <div className="action-buttons">
-              <button onClick={() => handleEditCategory(category.id, category.name)} className="edit-btn">
-                <FaEdit /> Edit
-              </button>
-              <button onClick={() => handleDeleteCategory(category.id)} className="delete-btn">
-                <FaTrash /> Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+  <div className="custom-category-input">
+    <input
+      type="text"
+      value={newCategory}
+      onChange={e => setNewCategory(e.target.value)}
+      placeholder="Enter category name"
+    />
+    {isEditing ? (
+      <button className="custom-btn-update" onClick={handleUpdateCategory}>Update</button>
+    ) : (
+      <button className="custom-btn-add" onClick={handleAddCategory}>Add</button>
+    )}
+  </div>
+
+  <table className="custom-category-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Category Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {categories.map(category => (
+        <tr key={category.id}>
+          <td>{category.id}</td>
+          <td>{category.name}</td>
+          <td>
+            <button onClick={() => handleEditCategory(category.id, category.name)} className="custom-edit-btn">
+              <FaEdit />
+            </button>
+            <button onClick={() => handleDeleteCategory(category.id)} className="custom-delete-btn">
+              <FaTrash />
+            </button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+
   );
 };
 

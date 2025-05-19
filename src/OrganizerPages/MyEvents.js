@@ -65,6 +65,13 @@ const MyEvents = () => {
       <div className="card-grid">
         {events.map((event) => (
           <div key={event.id} className="event-card">
+            {event.imageData && (
+              <img
+                src={`data:image/jpeg;base64,${event.imageData}`}
+                alt="Event"
+                className="event-image"
+              />
+            )}
             <h3>{event.title}</h3>
             <p><strong>Date:</strong> {new Date(event.dateTime).toLocaleString()}</p>
             <p><strong>Venue:</strong> {event.venue?.name || 'N/A'}</p>
@@ -83,8 +90,20 @@ const MyEvents = () => {
           <div className="edit-modal">
             <h3>Edit Event</h3>
             <form onSubmit={handleUpdate}>
-              <input type="text" name="title" value={editingEvent.title} onChange={handleEditChange} required />
-              <input type="datetime-local" name="dateTime" value={editingEvent.dateTime} onChange={handleEditChange} required />
+              <input
+                type="text"
+                name="title"
+                value={editingEvent.title}
+                onChange={handleEditChange}
+                required
+              />
+              <input
+                type="datetime-local"
+                name="dateTime"
+                value={editingEvent.dateTime}
+                onChange={handleEditChange}
+                required
+              />
               <button type="submit">Update</button>
               <button className="btn-cancel" onClick={() => setEditingEvent(null)}>Cancel</button>
             </form>

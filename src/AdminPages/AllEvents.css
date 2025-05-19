@@ -1,114 +1,93 @@
-.my-events-container {
-  padding: 2rem 4%;
-  background: linear-gradient(135deg, #f0f4ff, #ffffff);
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.all-events-container {
+  padding: 2rem;
+  background-color: #f5f7fa;
 }
 
-.my-events-container h2 {
-  font-size: 2.4rem;
+.header {
   text-align: center;
-  color: #2c3e50;
   margin-bottom: 2rem;
-  position: relative;
+  font-size: 2rem;
+  color: #333;
 }
 
-.events-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .event-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
+  background-color: white;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 320px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  animation: fadeInUp 0.5s ease forwards;
-  opacity: 0;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .event-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
-.event-card h3 {
-  margin: 0 0 0.8rem 0;
-  font-size: 1.5rem;
-  color: #34495e;
+.event-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #e0e0e0;
 }
 
-.event-card p {
+.event-image.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 1rem;
+  height: 180px;
+}
+
+.event-info {
+  padding: 1rem;
+  flex: 1;
+}
+
+.event-info h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.event-info p {
+  margin: 0.2rem 0;
   color: #555;
-  margin: 0.3rem 0;
-  font-size: 0.95rem;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.35em 0.75em;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 50px;
-  background-color: #e0f0ff;
-  color: #0077cc;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.event-buttons {
+.event-actions {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 1.2rem;
 }
 
-.view-button,
-.delete-button {
-  padding: 0.5rem 1rem;
+.btn {
+  padding: 0.5rem 0.9rem;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.view-button {
-  background-color: #00b894;
+.view-btn {
+  background-color: #3498db;
   color: white;
 }
 
-.view-button:hover {
-  background-color: #019875;
-  transform: translateY(-2px);
-}
-
-.delete-button {
-  background-color: #ff7675;
+.delete-btn {
+  background-color: #e74c3c;
   color: white;
 }
 
-.delete-button:hover {
-  background-color: #d63031;
-  transform: translateY(-2px);
-}
-
-/* Animation */
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
 }

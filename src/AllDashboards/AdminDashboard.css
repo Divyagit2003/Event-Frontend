@@ -1,0 +1,75 @@
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 75px; /* Compensate for fixed navbar */
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 240px;
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top: 75px; /* Push below navbar */
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  height: calc(100vh - 75px);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.admin-sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #60a5fa;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-sidebar li {
+  margin-bottom: 20px;
+}
+
+.admin-sidebar a,
+.logout-btn {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.admin-sidebar a:hover,
+.logout-btn:hover {
+  background-color: #334155;
+  color: #60a5fa;
+}
+
+/* Main content area */
+.admin-content {
+  margin-left: 240px;
+  padding: 40px;
+  background-color: #f8fafc;
+  flex: 1;
+  min-height: calc(100vh - 75px);
+}
+
+.admin-content h1 {
+  font-size: 28px;
+  color: #1e293b;
+  margin-bottom: 30px;
+}

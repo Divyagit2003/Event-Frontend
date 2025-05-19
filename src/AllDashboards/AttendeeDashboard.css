@@ -1,0 +1,70 @@
+/* Container layout */
+.attendee-dashboard.sidebar-layout {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #2f3e46;
+  color: #fff;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #546a76;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-left: 0;
+}
+
+.sidebar-link {
+  color: #d1e0e0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #3d5a5a;
+  color: #ffffff;
+}
+
+.logout-link {
+  color: #ffb4a2;
+}
+
+.logout-link:hover {
+  background-color: #ff7f50;
+  color: #fff;
+}
+
+/* Main content */
+.dashboard-main {
+  flex-grow: 1;
+  padding: 3rem;
+}
+
+.dashboard-header h2 {
+  font-size: 2rem;
+  color: #2f3e46;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #555;
+}

@@ -1,9 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import AdminDashboard from './pages/AdminDashboard';
-import OrganizerDashboard from './pages/OrganizerDashboard';
-import AttendeeDashboard from './pages/AttendeeDashboard';
+
+import About from './NavBarPages/About';
+import Contact from './NavBarPages/Contact';
+import Home from './NavBarPages/Home';
+import Login from './NavBarPages/Login';
+import Navbar from './NavBarPages/Navbar';
+import Service from './NavBarPages/Service';
+import SignUp from './NavBarPages/SignUp';
+
+import AdminDashboard from './AllDashboards/AdminDashboard';
+import AttendeeDashboard from './AllDashboards/AttendeeDashboard';
+import OrganizerDashboard from './AllDashboards/OrganizerDashboard';
+
 import AllEvents from './AdminPages/AllEvents';
 import ManageCategories from './AdminPages/ManageCategories';
 import ManageVenues from './AdminPages/ManageVenues';
@@ -12,14 +20,10 @@ import CreateEvent from './OrganizerPages/CreateEvent';
 import BrowseEvents from './AttendeePages/BrowseEvents';
 import MyRegistrations from './AttendeePages/MyRegistrations';
 import EventDetails from './AdminPages/EventDetails';
-import Navbar from './pages/Navbar';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Contact from './pages/Contact';
 import EventRegistration from './AttendeePages/EventRegistration';
-import About from './pages/About';
-import Success from './AfterRagisterpage/Success';
-import Service from './NewPage/Service';
+
+import Success from './OtherPage/Success';
+import HomeEventDetailPage from './OtherPage/HomeEventDetailPage';
 
 
 
@@ -31,12 +35,12 @@ function App() {
   
       <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact />} />
-       {/* <Route path="/profile" element={<Profile />} />*/}
-        <Route path="/service" element={<Service />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+      <Route path="/event/:id" element={<HomeEventDetailPage />} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/service" element={<Service />} />
 
         {/* Admin Dashboards it's pages  */}
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
