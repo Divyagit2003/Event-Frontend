@@ -41,7 +41,7 @@ const Signup = () => {
   return (
     <div className="signup-page d-flex align-items-center justify-content-center min-vh-100 bg-gradient">
       <div className="signup-form-box p-5 shadow-lg rounded bg-white animate__animated animate__fadeInUp">
-        <h2 className="text-center mb-4 text-purple">Create an Account</h2>
+        <h2 className="text-center mb-4 text-color-purple">Create an Account</h2>
         <form onSubmit={handleSubmit} className="signup-form">
           <input
             type="text"

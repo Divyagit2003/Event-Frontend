@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import '../AllDashboards/OrganizerDashboard.css';
-import { FaCalendarCheck, FaPlusSquare, FaSignOutAlt } from 'react-icons/fa';
-import axios from 'axios';
+import "../AllDashboards/OrganizerDashboard.css";
+import { FaCalendarCheck, FaPlusSquare, FaSignOutAlt } from "react-icons/fa";
+import axios from "axios";
 
 const OrganizerDashboard = () => {
   const [totalEvents, setTotalEvents] = useState(0);
@@ -14,123 +14,157 @@ const OrganizerDashboard = () => {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8084/api/events/countEvents")
-      .then(response => setTotalEvents(response.data))
-      .catch(error => console.error("Error fetching total event count:", error));
+    axios
+      .get("http://localhost:8084/api/events/countEvents")
+      .then((response) => setTotalEvents(response.data))
+      .catch((error) =>
+        console.error("Error fetching total event count:", error)
+      );
 
-    axios.get("http://localhost:8084/api/events/getAllEvents")
-      .then(response => {
+    axios
+      .get("http://localhost:8084/api/events/getAllEvents")
+      .then((response) => {
         const events = response.data;
         const todayDateOnly = new Date();
         todayDateOnly.setHours(0, 0, 0, 0);
 
-        const upcoming = events.filter(event => new Date(event.date) >= todayDateOnly).length;
+        const upcoming = events.filter(
+          (event) => new Date(event.dateTime) >= todayDateOnly
+        ).length;
         setUpcomingEvents(upcoming);
       })
-      .catch(error => console.error("Error fetching all events:", error));
+      .catch((error) => console.error("Error fetching all events:", error));
   }, []);
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
+    let results = [];
 
-    axios.get(`http://localhost:8084/api/events/search`, {
-      params: {
-        venueName,
-        categoryName,
-        title: eventTitle
+    try {
+      if (eventTitle.trim()) {
+        const titleResponse = await axios.get(
+          `http://localhost:8084/api/events/search/title`,
+          {
+            params: { title: eventTitle },
+          }
+        );
+        results = titleResponse.data;
+      } else if (categoryName.trim()) {
+        const categoryResponse = await axios.get(
+          `http://localhost:8084/api/events/search/category`,
+          {
+            params: { category: categoryName },
+          }
+        );
+        results = categoryResponse.data;
+      } else if (venueName.trim()) {
+        const venueResponse = await axios.get(
+          `http://localhost:8084/api/events/search/venue`,
+          {
+            params: { venue: venueName },
+          }
+        );
+        results = venueResponse.data;
       }
-    })
-    .then(response => {
-      setFilteredEvents(response.data);
-    })
-    .catch(error => {
+
+      setFilteredEvents(results);
+    } catch (error) {
       console.error("Error fetching filtered events:", error);
       setFilteredEvents([]);
-    });
+    }
   };
 
   return (
-    <div className="organizer-dashboard">
-      <aside className="sidebar">
-        <h2 className="sidebar-title">Organizer</h2>
-        <ul className="sidebar-menu">
+    <div className="org-dashboard-wrapper">
+      <aside className="org-sidebar">
+        <h2 className="org-sidebar-title">Organizer</h2>
+        <ul className="org-sidebar-menu">
           <li>
-            <Link to="/organizer/allEvents">
-              <FaCalendarCheck className="icon" />
+            <Link to="/organizer/allEvents" className="org-link">
+              <FaCalendarCheck className="org-icon" />
               <span>My Events</span>
             </Link>
           </li>
           <li>
-            <Link to="/organizer/events">
-              <FaPlusSquare className="icon" />
+            <Link to="/organizer/events" className="org-link">
+              <FaPlusSquare className="org-icon" />
               <span>Create Event</span>
             </Link>
           </li>
           <li>
-            <Link to="/">
-              <FaSignOutAlt className="icon" />
+            <Link to="/" className="org-link">
+              <FaSignOutAlt className="org-icon" />
               <span>Logout</span>
             </Link>
           </li>
         </ul>
       </aside>
 
-      <main className="dashboard-main">
+      <main className="org-main-content">
         <h1>Welcome, Organizer!</h1>
         <p>Use the side menu to manage and create your events.</p>
 
-        <div className="dashboard-info">
-          <div className="info-card">
+        <div className="org-dashboard-info">
+          <div className="org-info-card">
             <h3>{totalEvents}</h3>
             <p>Total Events</p>
           </div>
-          <div className="info-card">
+          <div className="org-info-card">
             <h3>{upcomingEvents}</h3>
             <p>Upcoming Events</p>
           </div>
         </div>
 
         {/* Filter Section */}
-        <section className="event-filter mt-5">
+        <section className="org-event-filter">
           <h3>Search Events</h3>
-          <form onSubmit={handleSearch} className="filter-form">
+          <form onSubmit={handleSearch} className="org-filter-form">
             <input
               type="text"
               placeholder="Venue Name"
               value={venueName}
               onChange={(e) => setVenueName(e.target.value)}
-              required
             />
             <input
               type="text"
               placeholder="Category Name"
               value={categoryName}
               onChange={(e) => setCategoryName(e.target.value)}
-              required
             />
             <input
               type="text"
               placeholder="Event Title"
               value={eventTitle}
               onChange={(e) => setEventTitle(e.target.value)}
-              required
             />
             <button type="submit">Search</button>
           </form>
 
-          <div className="filtered-results mt-4">
+          <div className="org-filtered-results">
             <h5>Filtered Events:</h5>
             {filteredEvents.length === 0 ? (
               <p>No events found.</p>
             ) : (
-              <ul className="event-list">
-                {filteredEvents.map(event => (
-                  <li key={event.id} className="event-card">
-                    <strong>{event.title}</strong><br />
-                    <span>{new Date(event.dateTime).toLocaleString()}</span><br />
-                    Venue: {event.venue?.name} | Category: {event.category?.name}
-                  </li>
-                ))}
+              <ul className="org-event-list">
+                <div className="org-card-grid">
+                  {filteredEvents.map((event) => (
+                    <div key={event.id} className="org-event-card">
+                      <div className="org-event-info">
+                        <h4 className="org-event-title">{event.title}</h4>
+                        <p>
+                          <strong>Date & Time:</strong>{" "}
+                          {new Date(event.dateTime).toLocaleString()}
+                        </p>
+                        <p>
+                          <strong>Venue:</strong> {event.venue?.name}
+                        </p>
+                        <p>
+                          <strong>Category:</strong> {event.category?.name}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </ul>
             )}
           </div>

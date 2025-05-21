@@ -1,85 +1,51 @@
-.event-details-container {
+/* Base page container */
+.event-details-page {
+  font-family: 'Outfit', sans-serif;
+  margin-top: 75px; /* account for navbar height */
+}
+
+/* Full banner image section */
+.event-image-banner {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.event-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text content below image */
+.event-info-container {
+  margin-top: 40px;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Typography */
+.event-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.event-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.event-details-loading {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 1rem;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #e9f0ff, #f9fbff);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.event-details-card {
-  width: 100%;
-  max-width: 720px;
-  background: #ffffff;
-  border-radius: 22px;
-  box-shadow: 0 14px 36px rgba(50, 50, 93, 0.1), 0 4px 15px rgba(0, 0, 0, 0.07);
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-}
-
-.animated-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(50, 50, 93, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-body {
-  padding: 2.5rem 3rem;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.event-title {
-  font-size: 2.2rem;
-  color: #1f2937;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  border-bottom: 3px solid #4a90e2;
-  padding-bottom: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.card-body p {
-  font-size: 1.1rem;
-  color: #475569;
-  margin: 1rem 0;
-  line-height: 1.65;
-}
-
-.card-body p strong {
-  color: #334155;
-}
-
-.back-button {
-  display: block;
-  margin: 2.5rem auto 0;
-  padding: 0.75rem 2.2rem;
-  background: linear-gradient(135deg, #4a90e2, #357ABD);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(53, 122, 189, 0.4);
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.back-button:hover {
-  background: linear-gradient(135deg, #357ABD, #2a5a93);
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(42, 90, 147, 0.6);
-}
-
-.loading {
-  font-size: 1.6rem;
-  text-align: center;
-  color: #1f2937;
-  padding-top: 6rem;
-  font-weight: 600;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  font-size: 22px;
 }

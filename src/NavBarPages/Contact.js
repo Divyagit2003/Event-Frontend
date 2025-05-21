@@ -9,87 +9,85 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-
-    // You can also log or reset form here if needed
-    e.target.reset();
+    e.target.reset(); // Optional: clear the form
   };
 
   return (
     <>
       <div className="contact-container">
-        <div className="text-center mb-5">
+        <div className="contact-heading text-center mb-4">
           <h1 className="contact-title">Contact Us</h1>
-          <p className="lead text-muted">
-            We'd love to hear from you! Please fill out the form below and we'll
-            get back to you shortly.
+          <p className="contact-subtext">
+            We'd love to hear from you! Please fill out the form below and we'll get back to you shortly.
           </p>
         </div>
 
         {submitted && (
-          <div className="alert alert-success text-center w-75 mx-auto" role="alert">
-            ✅ Your message has been sent successfully!
+          <div className="contact-alert text-center" role="alert">
+            Your message has been sent successfully!
           </div>
         )}
 
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <form
-              className="contact-form p-4 shadow rounded bg-light"
-              action="https://formsubmit.co/your-email@example.com"
-              method="POST"
-              onSubmit={handleSubmit}
-            >
-              {/* Anti-bot */}
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+        <div className="contact-form-wrapper">
+          <form
+            className="contact-form"
+            action="https://formsubmit.co/your-email@example.com"
+            method="POST"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
 
-              <div className="mb-3">
-                <label className="form-label">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  className="form-control"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  className="form-control"
-                  placeholder="Enter subject"
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Message</label>
-                <textarea
-                  name="message"
-                  className="form-control"
-                  rows="5"
-                  placeholder="Write your message here..."
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" className="btn btn-primary w-100">
-                Send Message
-              </button>
-            </form>
-          </div>
+            <div className="contact-form-group">
+              <label className="contact-label">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                className="contact-input"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div className="contact-form-group">
+              <label className="contact-label">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                className="contact-input"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div className="contact-form-group">
+              <label className="contact-label">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                className="contact-input"
+                placeholder="Enter subject"
+              />
+            </div>
+
+            <div className="contact-form-group">
+              <label className="contact-label">Message</label>
+              <textarea
+                name="message"
+                className="contact-textarea"
+                rows="5"
+                placeholder="Write your message here..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" className="contact-submit-button">
+              Send Message
+            </button>
+          </form>
         </div>
 
-        <div className="contact-info mt-5 text-center">
+        <div className="contact-info text-center">
           <h4>Reach Us At</h4>
           <p>📞 +91 98765 43210</p>
           <p>📧 occasioncrafteventmanagement@gmail.com</p>

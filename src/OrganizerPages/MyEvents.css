@@ -1,5 +1,15 @@
 .my-events-container {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* paddingTop added inline in component */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .card-grid {
@@ -9,11 +19,13 @@
 }
 
 .event-card {
-  border: 1px solid #ccc;
+  background-color: #fff;
   border-radius: 10px;
   padding: 15px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .event-image {
@@ -25,29 +37,37 @@
 }
 
 .btn-group {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .btn-edit,
 .btn-delete {
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.btn-delete {
-  background: #e74c3c;
-  color: white;
+  padding: 8px 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .btn-edit {
-  background: #3498db;
+  background-color: #3498db;
   color: white;
-  border: none;
-  border-radius: 5px;
+}
+
+.btn-edit:hover {
+  background-color: #2980b9;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
 }
 
 .modal-overlay {
@@ -57,16 +77,39 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .edit-modal {
   background: #fff;
-  padding: 20px;
-  max-width: 400px;
-  margin: 10% auto;
   border-radius: 10px;
+  padding: 25px 30px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-cancel {
-  margin-left: 10px;
+.edit-modal h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.edit-modal label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.edit-modal input[type="text"],
+.edit-modal input[type="datetime-local"],
+.edit-modal input[type="number"],
+.edit-modal input[type="file"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 15
 }

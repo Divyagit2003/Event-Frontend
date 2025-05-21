@@ -69,6 +69,16 @@ const EventRegistration = () => {
           placeholder="Event ID"
           required
         />
+        <input
+          className="custom-input"
+          type="title"
+          name="title"
+          value={attendee.title}
+          onChange={handleChange}
+          placeholder="Title"
+          required
+        
+        />
         <button className="custom-button" type="submit">Register</button>
       </form>
       <p className="custom-message">{message}</p>

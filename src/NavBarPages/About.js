@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../OtherPage/Footer.js";
 import "../NavBarPagesCss/About.css";
+import TeamMember from "../OtherPage/TeamMember.js";
 
 function About() {
   const [zoomed, setZoomed] = useState(false);
@@ -28,9 +29,9 @@ function About() {
           <div className="about-text">
             <h2>Our Journey</h2>
             <p>
-              Started in 2010 in Pune, we’ve grown into one of the most reputable
-              event companies in Maharashtra. We’ve planned over 500+ grand
-              events, blending tradition with creativity.
+              Started in 2010 in Pune, we’ve grown into one of the most
+              reputable event companies in Maharashtra. We’ve planned over 500+
+              grand events, blending tradition with creativity.
             </p>
           </div>
           <div className="about-image">
@@ -71,8 +72,8 @@ function About() {
             <h2>Our Achievements</h2>
             <p>
               We’ve hosted celebrity weddings, high-end corporate functions, and
-              won multiple national awards. Our story is one of dedication, client
-              satisfaction, and excellence.
+              won multiple national awards. Our story is one of dedication,
+              client satisfaction, and excellence.
             </p>
           </div>
           <div className="about-image">
@@ -84,6 +85,7 @@ function About() {
         </div>
       </div>
 
+      <TeamMember />
       <div className="about-footer-spacing">
         <Footer />
       </div>

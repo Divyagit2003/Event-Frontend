@@ -1,6 +1,8 @@
 .browse-events-container {
-  padding: 20px;
+  padding: 90px 20px 20px 20px; /* Top padding accounts for fixed navbar */
   text-align: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .event-cards-container {

@@ -47,7 +47,7 @@ const testimonials = [
 const Reviewpage = () => {
   return (
     <section className="client-testimonials">
-      <h2>See What Our Clients Have to Say</h2>
+      <h2 style={{color:"purple"}}>See What Our Clients Have to Say</h2>
       {testimonials.map((testimonial, index) => (
         <div className="testimonial" key={index}>
           <div className="testimonial-header">
