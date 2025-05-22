@@ -1,5 +1,6 @@
 .browse-events-container {
-  padding: 90px 20px 20px 20px; /* Top padding accounts for fixed navbar */
+  padding: 90px 20px 20px 20px;
+  /* Top padding accounts for fixed navbar */
   text-align: center;
   min-height: 100vh;
   box-sizing: border-box;
@@ -31,7 +32,7 @@
 }
 
 .register-button {
-  background-color: #007bff;
+  background-color: #2f3e46;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -40,5 +41,5 @@
 }
 
 .register-button:hover {
-  background-color: #0056b3;
+  background-color: #3d5a5a;
 }

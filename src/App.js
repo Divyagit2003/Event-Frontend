@@ -23,6 +23,7 @@ import EventDetails from "./AdminPages/EventDetails";
 import EventRegistration from "./AttendeePages/EventRegistration";
 
 import Success from "./OtherPage/Success";
+import AttendeeData from "./OrganizerPages/AttendeeData";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="/organizer-dashboard" element={<OrganizerDashboard />} />
           <Route path="/organizer/allEvents" element={<MyEvents />} />
           <Route path="/organizer/events" element={<CreateEvent />} />
+          <Route path="/organizer/AllAtendee" element={<AttendeeData />} />
           {/* Attendee Dashboards it's pages  */}
           <Route path="/attendee-dashboard" element={<AttendeeDashboard />} />
           <Route path="/attendee/events" element={<BrowseEvents />} />

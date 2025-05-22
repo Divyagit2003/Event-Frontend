@@ -2,7 +2,8 @@
   display: flex;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 75px; /* Compensate for fixed navbar */
+  padding-top: 75px;
+  /* Compensate for fixed navbar */
 }
 
 /* Sidebar */
@@ -12,7 +13,8 @@
   color: #ffffff;
   padding: 20px;
   position: fixed;
-  top: 75px; /* Push below navbar */
+  top: 75px;
+  /* Push below navbar */
   bottom: 0;
   left: 0;
   overflow-y: auto;
@@ -57,6 +59,7 @@
 .logout-btn:hover {
   background-color: #334155;
   color: #60a5fa;
+  text-decoration: none;
 }
 
 /* Main content area */
@@ -73,12 +76,13 @@
   color: #1e293b;
   margin-bottom: 30px;
 }
+
 .category-search-section {
   margin-top: 30px;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .search-box {
@@ -96,7 +100,7 @@
 
 .search-btn {
   padding: 10px 20px;
-  background-color: #a966cc;
+  background-color: #1e293b;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -105,19 +109,21 @@
 }
 
 .search-btn:hover {
-  background-color: #8c4bb3;
+  background-color: #1e293b;
 }
 
 .search-results ul {
   list-style-type: disc;
   padding-left: 20px;
 }
-.venue-search-section, .category-search-section {
+
+.venue-search-section,
+.category-search-section {
   margin-top: 30px;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .search-box {
@@ -135,7 +141,7 @@
 
 .search-btn {
   padding: 10px 20px;
-  background-color: #a966cc;
+  background-color: #1e293b;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -144,7 +150,7 @@
 }
 
 .search-btn:hover {
-  background-color: #8c4bb3;
+  background-color: #1e293b;
 }
 
 .search-results ul {

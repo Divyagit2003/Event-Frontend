@@ -29,7 +29,7 @@ function About() {
           <div className="about-text">
             <h2>Our Journey</h2>
             <p>
-              Started in 2010 in Pune, we’ve grown into one of the most
+              Started in 2025 in Pune, we’ve grown into one of the most
               reputable event companies in Maharashtra. We’ve planned over 500+
               grand events, blending tradition with creativity.
             </p>
@@ -77,10 +77,7 @@ function About() {
             </p>
           </div>
           <div className="about-image">
-            <img
-              src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6"
-              alt="Our Achievements"
-            />
+            <img src="/assests/achiev.jpg" alt="Our Achievements" />
           </div>
         </div>
       </div>

@@ -38,12 +38,12 @@ const BrowseEvents = () => {
           events.map((event) => (
             <div key={event.id} className="event-card">
               {event.imageData && (
-              <img
-                src={`data:image/jpeg;base64,${event.imageData}`}
-                alt="Event"
-                className="event-image"
-              />
-            )}
+                <img
+                  src={`data:image/jpeg;base64,${event.imageData}`}
+                  alt="Event"
+                  className="attendee-event-image"
+                />
+              )}
               <h3>{event.title}</h3>
               <p>
                 <strong>Date:</strong>{" "}

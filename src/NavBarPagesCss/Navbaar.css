@@ -23,7 +23,7 @@
 
 /* Branding */
 .navbar-brand {
-  color: black !important;
+  color: purple !important;
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -32,7 +32,7 @@
 /* Link styles */
 .navbar-nav .nav-link {
   font-size: 18px;
-  color: black;
+  color: purple;
   padding: 8px 20px;
   position: relative;
   transition: all 0.3s ease;

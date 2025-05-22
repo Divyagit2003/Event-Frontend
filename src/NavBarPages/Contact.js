@@ -18,7 +18,8 @@ const Contact = () => {
         <div className="contact-heading text-center mb-4">
           <h1 className="contact-title">Contact Us</h1>
           <p className="contact-subtext">
-            We'd love to hear from you! Please fill out the form below and we'll get back to you shortly.
+            We'd love to hear from you! Please fill out the form below and we'll
+            get back to you shortly.
           </p>
         </div>
 
@@ -31,12 +32,16 @@ const Contact = () => {
         <div className="contact-form-wrapper">
           <form
             className="contact-form"
-            action="https://formsubmit.co/your-email@example.com"
+            action="https://formsubmit.co/el/huguni"
             method="POST"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://yourdomain.com/thank-you" // Replace this too
+            />
 
             <div className="contact-form-group">
               <label className="contact-label">Full Name</label>
@@ -85,13 +90,6 @@ const Contact = () => {
               Send Message
             </button>
           </form>
-        </div>
-
-        <div className="contact-info text-center">
-          <h4>Reach Us At</h4>
-          <p>📞 +91 98765 43210</p>
-          <p>📧 occasioncrafteventmanagement@gmail.com</p>
-          <p>📍 Pune, Maharashtra, India</p>
         </div>
 
         <footer className="footer-wrapper">

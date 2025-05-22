@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import '../AllDashboards/AdminDashboard.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../AllDashboards/AdminDashboard.css";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
   // States for category search
-  const [categorySearchTerm, setCategorySearchTerm] = useState('');
+  const [categorySearchTerm, setCategorySearchTerm] = useState("");
   const [categoryResults, setCategoryResults] = useState([]);
 
   // States for venue search and filter
-  const [venueSearchTerm, setVenueSearchTerm] = useState('');
-  const [venueFilterLocation, setVenueFilterLocation] = useState('');
+  const [venueSearchTerm, setVenueSearchTerm] = useState("");
+  const [venueFilterLocation, setVenueFilterLocation] = useState("");
   const [venueResults, setVenueResults] = useState([]);
 
   // Loading and error states (optional but better UX)
   const [loading, setLoading] = useState(false);
-
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
 
   // Reusable fetch wrapper for handling API calls
   const fetchData = async (url, setResults, errorMsg) => {
@@ -45,37 +40,43 @@ const AdminDashboard = () => {
 
   const handleCategorySearch = () => {
     if (!categorySearchTerm.trim()) {
-      alert('Please enter a category name.');
+      alert("Please enter a category name.");
       return;
     }
     fetchData(
-      `http://localhost:8084/api/categories/searchCategory?name=${encodeURIComponent(categorySearchTerm.trim())}`,
+      `http://localhost:8084/api/categories/searchCategory?name=${encodeURIComponent(
+        categorySearchTerm.trim()
+      )}`,
       setCategoryResults,
-      'Error while searching categories.'
+      "Error while searching categories."
     );
   };
 
   const handleVenueSearch = () => {
     if (!venueSearchTerm.trim()) {
-      alert('Please enter a venue name.');
+      alert("Please enter a venue name.");
       return;
     }
     fetchData(
-      `http://localhost:8084/api/venues/search/name?name=${encodeURIComponent(venueSearchTerm.trim())}`,
+      `http://localhost:8084/api/venues/search/name?name=${encodeURIComponent(
+        venueSearchTerm.trim()
+      )}`,
       setVenueResults,
-      'Error while searching venues.'
+      "Error while searching venues."
     );
   };
 
   const handleVenueFilter = () => {
     if (!venueFilterLocation.trim()) {
-      alert('Please enter a location to filter.');
+      alert("Please enter a location to filter.");
       return;
     }
     fetchData(
-      `http://localhost:8084/api/venues/filter?location=${encodeURIComponent(venueFilterLocation.trim())}`,
+      `http://localhost:8084/api/venues/filter?location=${encodeURIComponent(
+        venueFilterLocation.trim()
+      )}`,
       setVenueResults,
-      'Error while filtering venues.'
+      "Error while filtering venues."
     );
   };
 
@@ -83,10 +84,20 @@ const AdminDashboard = () => {
     <div className="admin-dashboard">
       <aside className="admin-sidebar">
         <ul>
-          <li><Link to="/admin/events">All Events</Link></li>
-          <li><Link to="/admin/categories">Manage Categories</Link></li>
-          <li><Link to="/admin/venues">Manage Venues</Link></li>
-          <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
+          <li>
+            <Link to="/admin/events">All Events</Link>
+          </li>
+          <li>
+            <Link to="/admin/categories">Manage Categories</Link>
+          </li>
+          <li>
+            <Link to="/admin/venues">Manage Venues</Link>
+          </li>
+          <li>
+            <Link to="/" className="logout-btn">
+              Logout
+            </Link>
+          </li>
         </ul>
       </aside>
 
@@ -103,10 +114,14 @@ const AdminDashboard = () => {
               value={categorySearchTerm}
               onChange={(e) => setCategorySearchTerm(e.target.value)}
               className="search-input"
-              onKeyDown={(e) => e.key === 'Enter' && handleCategorySearch()}
+              onKeyDown={(e) => e.key === "Enter" && handleCategorySearch()}
             />
-            <button onClick={handleCategorySearch} className="search-btn" disabled={loading}>
-              {loading ? 'Searching...' : 'Search'}
+            <button
+              onClick={handleCategorySearch}
+              className="search-btn"
+              disabled={loading}
+            >
+              {loading ? "Searching..." : "Search"}
             </button>
           </div>
           {categoryResults.length > 0 ? (
@@ -130,10 +145,14 @@ const AdminDashboard = () => {
               value={venueSearchTerm}
               onChange={(e) => setVenueSearchTerm(e.target.value)}
               className="search-input"
-              onKeyDown={(e) => e.key === 'Enter' && handleVenueSearch()}
+              onKeyDown={(e) => e.key === "Enter" && handleVenueSearch()}
             />
-            <button onClick={handleVenueSearch} className="search-btn" disabled={loading}>
-              {loading ? 'Searching...' : 'Search'}
+            <button
+              onClick={handleVenueSearch}
+              className="search-btn"
+              disabled={loading}
+            >
+              {loading ? "Searching..." : "Search"}
             </button>
           </div>
 
@@ -145,10 +164,14 @@ const AdminDashboard = () => {
               value={venueFilterLocation}
               onChange={(e) => setVenueFilterLocation(e.target.value)}
               className="search-input"
-              onKeyDown={(e) => e.key === 'Enter' && handleVenueFilter()}
+              onKeyDown={(e) => e.key === "Enter" && handleVenueFilter()}
             />
-            <button onClick={handleVenueFilter} className="search-btn" disabled={loading}>
-              {loading ? 'Filtering...' : 'Filter'}
+            <button
+              onClick={handleVenueFilter}
+              className="search-btn"
+              disabled={loading}
+            >
+              {loading ? "Filtering..." : "Filter"}
             </button>
           </div>
 
@@ -161,7 +184,8 @@ const AdminDashboard = () => {
               ))}
             </ul>
           ) : (
-            (venueSearchTerm || venueFilterLocation) && !loading && <p>No venues found.</p>
+            (venueSearchTerm || venueFilterLocation) &&
+            !loading && <p>No venues found.</p>
           )}
         </section>
       </main>

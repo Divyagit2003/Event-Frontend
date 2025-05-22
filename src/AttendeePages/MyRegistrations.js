@@ -22,10 +22,11 @@ const MyRegistrations = () => {
 
   const handleCancel = async (id) => {
     try {
-      await axios.delete(`http://localhost:8084/attendee/${id}`);
+      await axios.delete(`http://localhost:8084/attendee/delete/${id}`);
       alert("Registration cancelled.");
-      fetchAllRegistrations();
+      fetchAllRegistrations(); // Refresh list
     } catch (err) {
+      console.error(err);
       alert("Failed to cancel registration.");
     }
   };
@@ -40,38 +41,37 @@ const MyRegistrations = () => {
   return (
     <div className="my-registrations-container">
       <h2>All Event Registrations</h2>
+
       {attendees.length === 0 ? (
         <p>No registrations found.</p>
       ) : (
-        attendees.map((attendee) => (
-          <div key={attendee.id} className="registration-card">
-            <h3>{attendee.eventTitle}</h3>
-            <p><strong>Date:</strong> {attendee.eventDate}</p>
+        <div className="registration-grid">
+          {attendees.map((attendee) => (
+            <div key={attendee.id} className="registration-card">
+              {attendee.eventImage && (
+                <img
+                  src={`data:image/jpeg;base64,${attendee.eventImage}`}
+                  alt="Event"
+                  className="event-image"
+                />
+              )}
 
-            {attendee.eventImage && attendee.eventImage.length > 0 && (
-              <img
-                src={`data:image/jpeg;base64,${btoa(
-                  new Uint8Array(attendee.eventImage).reduce(
-                    (data, byte) => data + String.fromCharCode(byte),
-                    ""
-                  )
-                )}`}
-                alt="Event"
-                className="registered-event-image"
-              />
-            )}
+              <div className="registration-content">
+                <h3>{attendee.eventTitle}</h3>
+                <p><strong>Date:</strong> {attendee.eventDate}</p>
+                <p><strong>Name:</strong> {attendee.name}</p>
+                <p><strong>Email:</strong> {attendee.email}</p>
 
-            <p><strong>Name:</strong> {attendee.name}</p>
-            <p><strong>Email:</strong> {attendee.email}</p>
-
-            <button
-              onClick={() => handleCancel(attendee.id)}
-              className="cancel-button"
-            >
-              Cancel Registration
-            </button>
-          </div>
-        ))
+                <button
+                  onClick={() => handleCancel(attendee.id)}
+                  className="cancel-button"
+                >
+                  Cancel Registration
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

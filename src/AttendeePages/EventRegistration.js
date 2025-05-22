@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import './EventRegistration.css';
+import "./EventRegistration.css";
 
 const EventRegistration = () => {
-  const [attendee, setAttendee] = useState({ name: '', email: '', eventId: '' });
-  const [message, setMessage] = useState('');
+  const [attendee, setAttendee] = useState({
+    name: "",
+    email: "",
+    eventId: "",
+  });
+  const [message, setMessage] = useState("");
   const navigate = useNavigate(); // Initialize navigate
 
   const handleChange = (e) => {
@@ -14,26 +18,29 @@ const EventRegistration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8084/attendee/register/${attendee.eventId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: attendee.name,
-          email: attendee.email
-        })
-      });
+      const res = await fetch(
+        `http://localhost:8084/attendee/register/${attendee.eventId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: attendee.name,
+            email: attendee.email,
+          }),
+        }
+      );
 
-      if (!res.ok) throw new Error('Registration failed');
+      if (!res.ok) throw new Error("Registration failed");
       const data = await res.text();
-      setMessage('Registration successful!');
+      setMessage("Registration successful!");
       console.log(data);
-      
+
       // Redirect to the success page
-      navigate('/success'); 
+      navigate("/success");
     } catch (err) {
-      setMessage('Error registering attendee');
+      setMessage("Error registering attendee");
       console.error(err);
     }
   };
@@ -69,21 +76,14 @@ const EventRegistration = () => {
           placeholder="Event ID"
           required
         />
-        <input
-          className="custom-input"
-          type="title"
-          name="title"
-          value={attendee.title}
-          onChange={handleChange}
-          placeholder="Title"
-          required
-        
-        />
-        <button className="custom-button" type="submit">Register</button>
+
+        <button className="custom-button" type="submit">
+          Register
+        </button>
       </form>
       <p className="custom-message">{message}</p>
     </div>
   );
-}
+};
 
 export default EventRegistration;

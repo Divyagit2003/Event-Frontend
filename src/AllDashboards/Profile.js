@@ -26,7 +26,13 @@ const Profile = () => {
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
       <h2>User Profile</h2>
-      {error ? <p style={{ color: "red" }}>{error}</p> : <p><strong>Name:</strong> {name}</p>}
+      {error ? (
+        <p style={{ color: "red" }}>{error}</p>
+      ) : (
+        <p>
+          <strong>Name:</strong> {name}
+        </p>
+      )}
     </div>
   );
 };

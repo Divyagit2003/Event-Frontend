@@ -45,7 +45,7 @@
 .custom-button {
   width: 100%;
   padding: 12px;
-  background-color: #4f46e5;
+  background-color: #6a87a5;
   color: white;
   font-weight: bold;
   border: none;
@@ -55,7 +55,7 @@
 }
 
 .custom-button:hover {
-  background-color: #4338ca;
+  background-color:#3e5771;
 }
 
 /* Message */

@@ -1,5 +1,6 @@
 .success-container {
-  padding-top: 90px; /* Adjust for fixed navbar */
+  padding-top: 90px;
+  /* Adjust for fixed navbar */
   min-height: 100vh;
   display: flex;
   justify-content: center;

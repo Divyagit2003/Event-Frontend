@@ -4,14 +4,17 @@
   padding: 2rem 2.5rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #2c3e50;
-  padding-top: 6rem; /* Adjust this according to your navbar height */
+  padding-top: 6rem;
+  /* Adjust this according to your navbar height */
 }
 
 .custom-manage-categories h2 {
-  font-size: 2.4rem; /* a bit bigger */
+  font-size: 2.4rem;
+  /* a bit bigger */
   margin-bottom: 1.5rem;
   text-align: center;
-  color: purple;/* deep purple */
+  color: purple;
+  /* deep purple */
   font-weight: 700;
   letter-spacing: 0.03em;
 }
@@ -25,26 +28,31 @@
 
 .custom-category-input input {
   flex: 1;
-  padding: 0.8rem 1.2rem; /* larger padding */
+  padding: 0.8rem 1.2rem;
+  /* larger padding */
   font-size: 1.1rem;
-  border: 2px solid #dcd6f7; /* light pastel purple border */
+  border: 2px solid #dcd6f7;
+  /* light pastel purple border */
   border-radius: 10px;
   transition: border-color 0.3s ease;
 }
 
 .custom-category-input input:focus {
   outline: none;
-  border-color:purple; /* pastel purple focus */
+  border-color: purple;
+  /* pastel purple focus */
   box-shadow: 0 0 8px rgba(142, 124, 195, 0.5);
 }
 
-.custom-btn-add, .custom-btn-update {
-   /* pastel purple gradient */
+.custom-btn-add,
+.custom-btn-update {
+  /* pastel purple gradient */
   color: black;
-  
+
   border: none;
   border-radius: 10px;
-  padding: 0 2rem; /* wider buttons */
+  padding: 0 2rem;
+  /* wider buttons */
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -54,7 +62,8 @@
   gap: 0.4rem;
 }
 
-.custom-btn-add:hover, .custom-btn-update:hover {
+.custom-btn-add:hover,
+.custom-btn-update:hover {
   background: linear-gradient(135deg, #7c69cc, #5d3a86);
   transform: scale(1.05);
 }
@@ -65,12 +74,14 @@
 }
 
 .custom-category-table thead {
-  background: #8e7cc3; /* pastel purple */
+  background: #8e7cc3;
+  /* pastel purple */
   color: white;
 }
 
 .custom-category-table thead th {
-  padding: 1.3rem 1.6rem; /* bigger padding */
+  padding: 1.3rem 1.6rem;
+  /* bigger padding */
   font-weight: 700;
   text-align: left;
   letter-spacing: 0.02em;
@@ -79,12 +90,14 @@
 
 .custom-category-table tbody tr {
   background: transparent;
-  border-bottom: 1.5px solid #e5e0f7; /* subtle pastel border */
+  border-bottom: 1.5px solid #e5e0f7;
+  /* subtle pastel border */
   transition: background-color 0.3s ease;
 }
 
 .custom-category-table tbody tr:nth-child(even) {
-  background: #f3f1fb; /* very light pastel purple */
+  background: #f3f1fb;
+  /* very light pastel purple */
 }
 
 .custom-category-table tbody tr:hover {
@@ -92,29 +105,35 @@
 }
 
 .custom-category-table tbody td {
-  padding: 1.3rem 1.6rem; /* bigger padding */
+  padding: 1.3rem 1.6rem;
+  /* bigger padding */
   font-size: 1.05rem;
   color: #4b3b72;
 }
 
-.custom-edit-btn, .custom-delete-btn {
+.custom-edit-btn,
+.custom-delete-btn {
   border: none;
   cursor: pointer;
   padding: 0.5rem 0.9rem;
   border-radius: 8px;
-  font-size: 1.3rem; /* slightly bigger icons */
+  font-size: 1.3rem;
+  /* slightly bigger icons */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: black; /* soft purple-gray */
+  color: black;
+  /* soft purple-gray */
   background: none;
   transition: color 0.3s ease;
 }
 
 .custom-edit-btn:hover {
-  color: #462bb3; /* deeper purple on hover */
+  color: #462bb3;
+  /* deeper purple on hover */
 }
 
 .custom-delete-btn:hover {
-  color: #ac2525; /* pinkish purple on hover */
+  color: #ac2525;
+  /* pinkish purple on hover */
 }

@@ -1,6 +1,7 @@
 .manage-venues-container {
-   max-width: 1200px;
-  margin: 7rem auto 2rem; /* Increased top margin to account for navbar */
+  max-width: 1200px;
+  margin: 7rem auto 2rem;
+  /* Increased top margin to account for navbar */
   padding: 3rem 1.5rem;
   font-family: 'Segoe UI', sans-serif;
   background: #f4f6f8;
@@ -21,7 +22,8 @@ h2 {
 
 .form-container input {
   padding: 0.8rem 1rem;
-  border: 2px solid purple; /* Green border */
+  border: 2px solid purple;
+  /* Green border */
   border-radius: 8px;
   width: 60%;
   font-size: 1rem;
@@ -29,7 +31,8 @@ h2 {
 }
 
 .form-container input:focus {
-  border-color: purple; /* Darker green on focus */
+  border-color: purple;
+  /* Darker green on focus */
 }
 
 .btn {
@@ -45,16 +48,19 @@ h2 {
 }
 
 .add-btn {
-  background-color: purple; /* Green for Add */
+  background-color: purple;
+  /* Green for Add */
   color: white;
 }
 
 .update-btn {
-  background-color: #2196F3; /* Blue for Update */
+  background-color: #2196F3;
+  /* Blue for Update */
   color: white;
 }
 
-.add-btn:hover, .update-btn:hover {
+.add-btn:hover,
+.update-btn:hover {
   transform: scale(1.05);
 }
 
@@ -64,7 +70,8 @@ h2 {
   margin-top: 2rem;
 }
 
-.venues-table th, .venues-table td {
+.venues-table th,
+.venues-table td {
   padding: 1rem;
   text-align: left;
   border: 1px solid #ddd;
@@ -95,25 +102,31 @@ h2 {
 }
 
 .edit-btn {
-  background-color: #2196F3; /* Blue for Edit */
+  background-color: #2196F3;
+  /* Blue for Edit */
   color: white;
 }
 
 .delete-btn {
-  background-color: #F44336; /* Red for Delete */
+  background-color: #F44336;
+  /* Red for Delete */
   color: white;
 }
 
 .edit-btn:hover {
-  background-color: #1976D2; /* Darker blue */
+  background-color: #1976D2;
+  /* Darker blue */
   transform: scale(1.1);
 }
 
 .delete-btn:hover {
-  background-color: #D32F2F; /* Darker red */
+  background-color: #D32F2F;
+  /* Darker red */
   transform: scale(1.1);
 }
 
-.edit-btn svg, .delete-btn svg {
-  margin-right: 0.5rem; /* Space between icon and text */
+.edit-btn svg,
+.delete-btn svg {
+  margin-right: 0.5rem;
+  /* Space between icon and text */
 }

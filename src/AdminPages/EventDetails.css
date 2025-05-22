@@ -1,7 +1,8 @@
 /* Base page container */
 .event-details-page {
   font-family: 'Outfit', sans-serif;
-  margin-top: 75px; /* account for navbar height */
+  margin-top: 75px;
+  /* account for navbar height */
 }
 
 /* Full banner image section */

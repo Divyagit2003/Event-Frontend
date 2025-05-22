@@ -18,7 +18,7 @@
 
 /* Optional: Slow slide transitions */
 .carousel-inner {
-  transition: transform 1s ease;
+  transition: transform 0.5s ease;
 }
 
 /* Carousel control icons (if used in future) */
@@ -46,67 +46,76 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;  /* Centers the content horizontally */
-  padding: 0 20px;  /* Equal padding on both left and right sides */
+  justify-content: center;
+  /* Centers the content horizontally */
+  padding: 0 20px;
+  /* Equal padding on both left and right sides */
 }
 
+/* Card slider */
 /* Card slider */
 .card-slider {
   display: flex;
   gap: 30px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 20px;
-  width: 80%; /* This controls the card container's width */
-  justify-content: center; /* Ensures the cards are centered inside the container */
+  padding: 20px 0;
+  width: 100%;
+  max-width: 1320px; /* fits 6 cards of 200px + 30px gaps */
+  margin: 0 auto;
 }
 
-
-
+/* Hide scrollbar */
 .card-slider::-webkit-scrollbar {
   display: none;
 }
 
-/* Event card */
-/* Smaller Event Card */
+/* Event Card styling */
 .event-card-3d {
-  flex: 0 0 auto;
-  width: 200px;
-  /* smaller card width */
+  flex: 0 0 200px; /* Fixed width for 6 cards */
+  height: 250px;   /* Fixed height */
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  transform: perspective(1000px) rotateY(0deg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-/* Card Image */
+.event-card-3d:hover {
+  transform: scale(1.05);
+}
+
+/* Card image */
 .event-card-3d img {
   width: 100%;
   height: 140px;
-  /* smaller image height */
-  border-radius: 15px 15px 0 0;
   object-fit: cover;
 }
 
-/* Card Content (Background inside card only) */
+/* Card content */
 .card-content {
+  flex: 1;
   padding: 10px;
   background-color: #f7f0ff;
-  /* very light purple */
-  border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
-/* Text Colors */
 .card-content h3 {
   font-size: 1.1rem;
+  margin: 0;
   color: #4b0082;
 }
 
 .card-content span {
   font-size: 0.85rem;
   color: #6a5acd;
+  margin-top: 5px;
 }
 
 /* Slider wrapper spacing */
@@ -123,11 +132,14 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 20px;
-  width: 80%; /* adjust as needed */
+  width: 80%;
+  /* adjust as needed */
 }
-.event-card-3d:hover{
-transform: scale(1.05);  
+
+.event-card-3d:hover {
+  transform: scale(1.05);
 }
+
 /* Arrow button styling */
 .arrow {
   background-color: transparent;
@@ -145,7 +157,8 @@ transform: scale(1.05);
 }
 
 .arrow:hover {
-  background-color: #3f145a; /* green */
+  background-color: #3f145a;
+  /* green */
   color: white;
 }
 
@@ -182,4 +195,27 @@ transform: scale(1.05);
   font-size: 1.2rem;
 }
 
+@media (max-width: 1200px) {
+  .event-card-3d {
+    flex: 0 0 180px;
+  }
+}
 
+@media (max-width: 992px) {
+  .event-card-3d {
+    flex: 0 0 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-card-3d {
+    flex: 0 0 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .event-card-3d {
+    flex: 0 0 100%;
+    height: auto;
+  }
+}

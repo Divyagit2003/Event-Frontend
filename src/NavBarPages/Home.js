@@ -23,15 +23,16 @@ const Home = () => {
 
   const scrollLeft = () => {
     const slider = document.getElementById("event-slider");
-    slider.scrollBy({ left: -300, behavior: "smooth" });
-    setActiveArrow("left"); // <-- Mark active
+    slider.scrollBy({ left: -250 * 6, behavior: "smooth" }); // move 6 cards left
+    setActiveArrow("left");
   };
 
   const scrollRight = () => {
     const slider = document.getElementById("event-slider");
-    slider.scrollBy({ left: 300, behavior: "smooth" });
-    setActiveArrow("right"); // <-- Mark active
+    slider.scrollBy({ left: 250 * 6, behavior: "smooth" }); // move 6 cards right
+    setActiveArrow("right");
   };
+
   return (
     <div className="home-container">
       <div
@@ -85,7 +86,13 @@ const Home = () => {
                 key={event.id}
                 onClick={() => handleCardClick(event.id)}
               >
-                <img src="/assests/event3.jpg" alt="event-pic" />
+                {event.imageData && (
+                  <img
+                    src={`data:image/jpeg;base64,${event.imageData}`}
+                    alt="Event"
+                    className="home-event-image"
+                  />
+                )}
                 <div className="card-content">
                   <h3>{event.title}</h3>
                   <span>{new Date(event.dateTime).toLocaleString()}</span>
@@ -106,7 +113,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Reviewpage/>
+      <Reviewpage />
       <Footer />
     </div>
   );

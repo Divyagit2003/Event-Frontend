@@ -40,7 +40,7 @@
   border-color: #0077cc;
 }
 
-/* ✅ Image transition for hover and click */
+/* Image transition for hover and click */
 .custom-service-img {
   width: 100%;
   height: 160px;
@@ -50,12 +50,12 @@
   transition: transform 0.4s ease-in-out;
 }
 
-/* ✅ Zoom-in on hover */
+/* Zoom-in on hover */
 .custom-service-card:hover .custom-service-img {
   transform: scale(1.1);
 }
 
-/* ✅ Zoom-out on click */
+/* Zoom-out on click */
 .zoom-out-active .custom-service-img {
   transform: scale(0.85);
 }
@@ -63,6 +63,7 @@
 .custom-service-card h2 {
   font-size: 16px;
   margin: 0 0 10px;
+  font-weight: bold;
 }
 
 .custom-service-card p {
@@ -74,7 +75,8 @@
 .custom-footer-spacing {
   margin-top: 60px;
 }
-#serviceId{
+
+#serviceId {
   display: flex;
   justify-content: center;
   font-weight: 550;

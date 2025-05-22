@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Footer from '../OtherPage/Footer';
-import '../NavBarPagesCss/Services.css';
+import React, { useState } from "react";
+import Footer from "../OtherPage/Footer";
+import "../NavBarPagesCss/Services.css";
 
 const services = [
   {
@@ -61,7 +61,10 @@ const ServiceCard = ({ title, description, imgSrc }) => {
   };
 
   return (
-    <div className={`custom-service-card ${zoomedOut ? 'zoom-out-active' : ''}`} onClick={handleCardClick}>
+    <div
+      className={`custom-service-card ${zoomedOut ? "zoom-out-active" : ""}`}
+      onClick={handleCardClick}
+    >
       <img src={imgSrc} alt={title} className="custom-service-img" />
       <h2>{title}</h2>
       <p>{description}</p>
@@ -73,13 +76,13 @@ const Service = () => {
   return (
     <div className="custom-page-wrapper">
       <div className="custom-services-container">
-        <h1 id='serviceId'>Services by OccasionCraft</h1>
+        <h1 id="serviceId">Services by OccasionCraft</h1>
         <p className="custom-intro" style={{ textAlign: "center" }}>
           "The Event Management System is a comprehensive platform designed to
           simplify and streamline the planning and execution of events of all
           sizes. Whether you are organizing corporate conferences, weddings,
-          workshops, or social gatherings, our system provides intuitive tools to
-          manage every detail with ease..."
+          workshops, or social gatherings, our system provides intuitive tools
+          to manage every detail with ease..."
         </p>
 
         <div className="custom-services-grid">

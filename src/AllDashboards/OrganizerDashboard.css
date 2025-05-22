@@ -1,8 +1,8 @@
 /* Adjusted for navbar height ~60px */
 .org-dashboard-wrapper {
   display: flex;
-  min-height: calc(100vh - 60px); /* Full viewport minus navbar height */
-  padding-top: 60px; /* space for fixed navbar */
+  min-height: calc(100vh - 60px);
+  padding-top: 60px;
   background: linear-gradient(145deg, #e2e8f0, #f8fafc);
   font-family: 'Segoe UI', sans-serif;
 }
@@ -15,7 +15,7 @@
   padding: 2rem;
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
   position: fixed;
-  top: 60px; /* below navbar */
+  top: 60px;
   bottom: 0;
   overflow-y: auto;
 }
@@ -52,6 +52,7 @@
 
 .org-link:hover {
   color: #2f80ed;
+  text-decoration: none;
 }
 
 /* Main content margin-left because sidebar fixed */
@@ -87,7 +88,7 @@
   background: #ffffffcc;
   backdrop-filter: blur(6px);
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -148,23 +149,29 @@
 }
 
 /* New Card Grid Layout for Search Results */
+/* Prevent card from stretching too wide when 1 result */
 .org-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
+  justify-items: center;
 }
 
-/* Event Card Styling */
 .org-event-card {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
 }
+
+/* Fix event image sizing */
+.org-dhashboard-event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
 
 .org-event-card:hover {
   transform: translateY(-4px);
@@ -195,3 +202,4 @@
   list-style: none;
   padding-left: 0;
 }
+

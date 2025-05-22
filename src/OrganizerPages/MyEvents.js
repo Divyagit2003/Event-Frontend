@@ -176,7 +176,7 @@ const MyEvents = () => {
               <img
                 src={`data:image/jpeg;base64,${event.imageData}`}
                 alt="Event"
-                className="event-image"
+                className="org-my-event-image"
               />
             )}
             <h3>{event.title}</h3>

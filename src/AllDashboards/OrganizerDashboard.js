@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../AllDashboards/OrganizerDashboard.css";
 import { FaCalendarCheck, FaPlusSquare, FaSignOutAlt } from "react-icons/fa";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+
 import axios from "axios";
 
 const OrganizerDashboard = () => {
@@ -92,6 +95,12 @@ const OrganizerDashboard = () => {
             </Link>
           </li>
           <li>
+            <Link to="/organizer/AllAtendee" className="org-link">
+              <FontAwesomeIcon icon={faEye}  className="org-icon" />
+              <span>View Attendee</span>
+            </Link>
+          </li>
+          <li>
             <Link to="/" className="org-link">
               <FaSignOutAlt className="org-icon" />
               <span>Logout</span>
@@ -149,6 +158,13 @@ const OrganizerDashboard = () => {
                 <div className="org-card-grid">
                   {filteredEvents.map((event) => (
                     <div key={event.id} className="org-event-card">
+                      {event.imageData && (
+                        <img
+                          src={`data:image/jpeg;base64,${event.imageData}`}
+                          alt="Event"
+                          className="org-dhashboard-event-image"
+                        />
+                      )}
                       <div className="org-event-info">
                         <h4 className="org-event-title">{event.title}</h4>
                         <p>
